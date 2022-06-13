@@ -1,6 +1,6 @@
 {
   "name": "lcu-constants",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "League Client Update (LCU) constants and types.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,5 +17,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kd0010/lcu-constants.git"
+  },
+  "dependencies": {
+    "lol-constants": "^0.2.1"
   }
 }

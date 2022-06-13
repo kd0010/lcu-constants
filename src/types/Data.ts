@@ -1,11 +1,12 @@
-import { TInternalRegion, TLocale, TRegion } from '.'
+import { TLocale } from '.'
+import { PlatformId, Region } from 'lol-constants'
 
 export interface LCUInstanceInfo {
   riotclientAuthToken: string
   riotclientAppPort: number
   noRads: boolean
   disableSelfUpdate: boolean
-  region: TRegion
+  region: Region
   locale: TLocale
   remotingAuthToken: string
   respawnCommand: string
@@ -17,7 +18,7 @@ export interface LCUInstanceInfo {
   uxHelperName: string
   logDir: string
   crashReporting: string
-  crashEnvironment: TInternalRegion
+  crashEnvironment: PlatformId
   appLogFilePath: string
   noProxyServer: boolean
 }
