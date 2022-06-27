@@ -1,5 +1,4 @@
-import { Locale } from '..'
-import { PlatformId, Region } from 'lol-constants'
+import { Locale, PlatformId, Region } from '..'
 
 /**
  * All the information that comes back from
