@@ -1,13 +1,18 @@
-import { TLocale } from '.'
+import { Locale } from '..'
 import { PlatformId, Region } from 'lol-constants'
 
+/**
+ * All the information that comes back from
+ * extracting options that the LCU is running with
+ * by command line `wmic` command.
+ */
 export interface LCUInstanceInfo {
   riotclientAuthToken: string
   riotclientAppPort: number
   noRads: boolean
   disableSelfUpdate: boolean
   region: Region
-  locale: TLocale
+  locale: Locale
   remotingAuthToken: string
   respawnCommand: string
   respawnDisplayName: string

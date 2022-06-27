@@ -1,7 +1,51 @@
-import { ChampSelectActionTypes } from '../Constants/ChampSelectActionTypes'
+import { ChampSelectActionTypes } from '../../Constants/ChampSelectActionTypes'
+import { AssignedPosition, CellId, ChampSelectPhase, EntitledFeatureType, TeamKey, TradeState } from '.'
 
-export interface IChampSelectPickAction {
-  actorCellId: TCellId
+/**
+ * Champion select event.
+ */
+export interface ChampSelectSessionEventData {
+  actions: (
+    | ChampSelectBanAction[]
+    | ChampSelectTenBansRevealAction[]
+    | ChampSelectPickAction[]
+  )
+  allowBattleBoost: boolean
+  allowDuplicatePicks: boolean
+  allowLockedEvents: boolean
+  allowRerolling: boolean
+  allowSkinSelection: boolean
+  /**
+   * `bans` does not seem to be used by `queueId` `420` (Ranked Solo/Duo).
+   */
+  bans: ChampSelectBans
+  benchChampionIds: unknown[]
+  benchEnabled: boolean
+  boostableSkinCount: number
+  chatDetails:ChatDetails
+  /**
+   * TODO: What is `counter`?
+   */
+  counter: number
+  entitledFeatureState: EntitledFeatureState
+  gameId: number
+  hasSimultaneousBans: boolean
+  hasSimultaneousPicks: boolean
+  isCustomGame: boolean
+  isSpectating: boolean
+  localPlayerCellId: CellId
+  lockedEventIndex: number
+  myTeam: TeamMember[]
+  recoveryCounter: number
+  rerollsRemaining: number
+  skipChampionSelect: boolean
+  theirTeam: TeamMember[]
+  timer: ChampSelectTimer
+  trades: ChampSelectTrade[]
+}
+
+export interface ChampSelectPickAction {
+  actorCellId: CellId
   championId: number
   completed: boolean
   id: (
@@ -25,8 +69,8 @@ export interface IChampSelectPickAction {
   type: 'pick'
 }
 
-export interface IChampSelectBanAction {
-  actorCellId: TCellId
+export interface ChampSelectBanAction {
+  actorCellId: CellId
   championId: number
   completed: boolean
   id: (
@@ -46,7 +90,7 @@ export interface IChampSelectBanAction {
   type: 'ban'
 }
 
-export interface IChampSelectTenBansRevealAction {
+export interface ChampSelectTenBansRevealAction {
   actorCellId: -1
   championId: 0
   completed: boolean
@@ -56,70 +100,42 @@ export interface IChampSelectTenBansRevealAction {
   type: 'ten_bans_reveal'
 }
 
-export interface IChampSelectBans {
-  myTeamBans: IChampSelectBan[]
-  theirTeamBans: IChampSelectBan[]
+export interface ChampSelectBans {
+  myTeamBans: ChampSelectBan[]
+  theirTeamBans: ChampSelectBan[]
   numBans: number
 }
 
-export interface IChampSelectBan {}
+export interface ChampSelectBan {}
 
-export interface IChatDetails {
+export interface ChatDetails {
   chatRoomName: string
   chatRoomPassword: string | null
 }
 
-export interface IEntitledFeatureState {
+export interface EntitledFeatureState {
   additionalRerolls: number
   unlockedSkinIds: unknown[]
 }
 
-export type TCellId =
-  | 0
-  | 1
-  | 2
-  | 3
-  | 4
-  | 5
-  | 6
-  | 7
-  | 8
-  | 9
-
-export interface ITeamMember {
-  assignedPosition: TAssignedPosition | ''
-  cellId: TCellId
+export interface TeamMember {
+  assignedPosition: AssignedPosition | ''
+  cellId: CellId
   championId: number
   /**
    * May have something to do with currently picking or picking soon
    */
   championPickIntent: 0 | 1
-  entitledFeatureType: TEntitledFeatureType
+  entitledFeatureType: EntitledFeatureType
   selectedSkinId: number
   spell1Id: number
   spell2Id: number
   summonerId: number
-  team: TTeam
+  team: TeamKey
   wardSkinId: number
 }
 
-export type TAssignedPosition =
-  | ''
-  | 'top'
-  | 'jungle'
-  | 'middle'
-  | 'bottom'
-  | 'utility'
-
-export type TEntitledFeatureType =
-  | ''
-  | 'NONE'
-
-export type TTeam =
-  | 1
-  | 2
-
-export interface ITimer {
+export interface ChampSelectTimer {
   /**
    * Duration in milliseconds.
    */
@@ -129,24 +145,15 @@ export interface ITimer {
    */
   internalNowInEpochMs: number
   isInfinite: boolean
-  phase: TChampSelectPhase
+  phase: ChampSelectPhase
   /**
    * Duration in milliseconds
    */
   totalTimeInPhase: number
 }
 
-export type TChampSelectPhase =
-  | 'BAN_PICK'
-  | 'PLANNING'
-  | 'FINALIZATION'
-
-export interface ITrade {
-  cellId: TCellId
+export interface ChampSelectTrade {
+  cellId: CellId
   id: number
-  state: TTradeState
+  state: TradeState
 }
-
-export type TTradeState =
-  | 'INVALID'
-  | 'SENT'

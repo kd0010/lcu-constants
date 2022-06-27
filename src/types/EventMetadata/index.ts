@@ -1,30 +1,30 @@
-import { MessageTypes } from '../Constants/MessageTypes'
-import { IChampSelectSessionEventData } from './EventData'
+import { LCUMessageTypes } from '../../Constants/LCUMessageTypes'
+import { ChampSelectSessionEventData } from '../EventData/Interfaces'
 
-export type TEventType =
+export type EventType =
   | 'Create'
   | 'Update'
   | 'Delete'
 
-export type TEventMetadata =
-  | IChampSelectSessionEvent
+export type EventMetadata =
+  | ChampSelectSessionEvent
 
-export interface IChampSelectSessionEvent {
-  data: IChampSelectSessionEventData
-  eventType: TEventType
+export interface ChampSelectSessionEvent {
+  data: ChampSelectSessionEventData
+  eventType: EventType
   uri: '/lol-champ-select/v1/session'
 }
 
-export type TMessageIdentifier =
-  typeof MessageTypes[ keyof typeof MessageTypes ]
+export type LCUMessageIdentifier =
+  typeof LCUMessageTypes[ keyof typeof LCUMessageTypes ]
 
-export type TMessage = [
-  TMessageIdentifier,
-  TEventName,
-  TEventMetadata,
+export type LCUMessage = [
+  LCUMessageIdentifier,
+  EventName,
+  EventMetadata,
 ]
 
-export type TEventName =
+export type EventName =
   | 'OnCallback'
   | 'OnJsonApiEvent'
   | 'OnJsonApiEvent_chat_v1_session'

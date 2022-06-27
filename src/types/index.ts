@@ -1,2 +1,2 @@
-export type TLocale =
+export type Locale =
   | 'en_GB'

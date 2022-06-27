@@ -1,10 +1,10 @@
 // # Constants
 export { ChampSelectActionTypes } from './Constants/ChampSelectActionTypes'
-export { MessageTypes } from './Constants/MessageTypes'
+export { LCUMessageTypes } from './Constants/LCUMessageTypes'
 
 // # types
 export * from './types'
-export * from './types/Data'
+export * from './types/Data/Interfaces'
 export * from './types/EventData'
-export * from './types/EventDataAtoms'
+export * from './types/EventData/Interfaces'
 export * from './types/EventMetadata'

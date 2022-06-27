@@ -1,4 +1,4 @@
-export const MessageTypes = {
+export const LCUMessageTypes = {
   WELCOME: 0,
   PREFIX: 1,
   CALL: 2,
