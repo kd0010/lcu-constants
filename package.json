@@ -1,6 +1,6 @@
 {
   "name": "lcu-constants",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "League Client Update (LCU) constants and types.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,16 +9,13 @@
     "/dist"
   ],
   "scripts": {
-    "clean-build": "rmdir /s /q dist && tsc",
-    "publish-new-major": "tsc && npm version major && npm publish",
-    "publish-new-minor": "tsc && npm version minor && npm publish",
-    "publish-new-patch": "tsc && npm version patch && npm publish"
+    "clean-build": "rmdir /s /q dist && tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kd0010/lcu-constants.git"
   },
   "dependencies": {
-    "lol-constants": "^0.10.1"
+    "lol-constants": "^1.1.3"
   }
 }

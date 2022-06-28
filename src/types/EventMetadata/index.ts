@@ -1,5 +1,5 @@
-import { LCUMessageTypes } from '../../Constants/LCUMessageTypes'
-import { ChampSelectSessionEventData } from '../EventData/Interfaces'
+import { LCUMessageIds } from '../../Constants/LCUMessageIds'
+import { ChampSelectSessionEvent } from './Interfaces'
 
 export type EventType =
   | 'Create'
@@ -9,17 +9,10 @@ export type EventType =
 export type EventMetadata =
   | ChampSelectSessionEvent
 
-export interface ChampSelectSessionEvent {
-  data: ChampSelectSessionEventData
-  eventType: EventType
-  uri: '/lol-champ-select/v1/session'
-}
-
-export type LCUMessageIdentifier =
-  typeof LCUMessageTypes[ keyof typeof LCUMessageTypes ]
+export type LCUMessageId = typeof LCUMessageIds[ keyof typeof LCUMessageIds ]
 
 export type LCUMessage = [
-  LCUMessageIdentifier,
+  LCUMessageId,
   EventName,
   EventMetadata,
 ]
