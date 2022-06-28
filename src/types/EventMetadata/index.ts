@@ -1,5 +1,7 @@
 import { LCUMessageIds } from '../../Constants/LCUMessageIds'
-import { ChampSelectSessionEvent } from './Interfaces'
+import { ChampSelectSessionEvent, PerksCurrentPageEvent, PerksInventoryEvent, PerksPagesEvent } from './Interfaces'
+
+export type LCUMessageId = typeof LCUMessageIds[ keyof typeof LCUMessageIds ]
 
 export type EventType =
   | 'Create'
@@ -8,8 +10,9 @@ export type EventType =
 
 export type EventMetadata =
   | ChampSelectSessionEvent
-
-export type LCUMessageId = typeof LCUMessageIds[ keyof typeof LCUMessageIds ]
+  | PerksInventoryEvent
+  | PerksPagesEvent
+  | PerksCurrentPageEvent
 
 export type LCUMessage = [
   LCUMessageId,

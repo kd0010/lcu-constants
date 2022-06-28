@@ -1,5 +1,5 @@
-import { ChampSelectActionTypes } from '../../Constants/ChampSelectActionTypes'
-import { AssignedPosition, CellId, ChampSelectPhase, EntitledFeatureType, TeamKey, TradeState } from '.'
+import { ChampSelectActionTypes } from '../../../Constants/ChampSelectActionTypes'
+import { AssignedPosition, CellId, ChampSelectPhase, EntitledFeatureType, TeamKey, TradeState } from '..'
 
 /**
  * Champion select event.
