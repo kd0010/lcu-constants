@@ -1,4 +1,5 @@
 // # Constants
+export { ChampSelectActionIndices } from './Constants/ChampSelectActionIndices'
 export { ChampSelectActionTypes } from './Constants/ChampSelectActionTypes'
 export { LCUMessageIds } from './Constants/LCUMessageIds'
 export { LCUMessageTypes } from './Constants/LCUMessageTypes'
