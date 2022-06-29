@@ -5,7 +5,7 @@ import { ChampSelectAction, ChampSelectBanActionId, ChampSelectPickActionId, Cha
  * Champion select event.
  */
 export interface ChampSelectSessionEventData {
-  actions: ChampSelectAction[]
+  actions: ChampSelectAction[][]
   allowBattleBoost: boolean
   allowDuplicatePicks: boolean
   allowLockedEvents: boolean

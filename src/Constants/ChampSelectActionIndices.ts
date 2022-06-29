@@ -3,8 +3,8 @@
  * in `ChampSelectSessionEventData.actions`.
  */
 export const ChampSelectActionIndices = {
-  banActions: 0,
-  tenBansRevealAction: 1,
+  bans: 0,
+  tenBansReveal: 1,
   picksB1: 2,
   picksR1R2: 3,
   picksB2B3: 4,
