@@ -2,9 +2,9 @@ import { ChampSelectActionTypes } from '../../../Constants/ChampSelectActionType
 import { ChampSelectBanAction, ChampSelectPickAction, ChampSelectTenBansRevealAction } from './Interfaces'
 
 export type ChampSelectAction = 
-  | ChampSelectBanAction[]
-  | ChampSelectTenBansRevealAction[]
-  | ChampSelectPickAction[]
+  | ChampSelectBanAction
+  | ChampSelectTenBansRevealAction
+  | ChampSelectPickAction
 
 export type ChampSelectPickActionId =
   | typeof ChampSelectActionTypes.BLUE_1_PICK
