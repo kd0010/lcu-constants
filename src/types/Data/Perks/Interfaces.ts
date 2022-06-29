@@ -1,6 +1,6 @@
 import { RuneId, RuneTreeId } from 'lol-constants'
 
-export interface PerksPagesEventData {
+export interface PerksPage {
   autoModifiedSelections: unknown[]
   current: boolean
   id: number
@@ -19,6 +19,6 @@ export interface PerksPagesEventData {
   subStyleId: RuneTreeId
 }
 
-export interface PerksInventoryEventData {
+export interface PerksInventory {
   ownedPageCount: number
 }

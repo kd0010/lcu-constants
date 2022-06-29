@@ -9,12 +9,14 @@ export { LCUURIs } from './Constants/LCUURIs'
 export * from './types'
 // ## Data
 export * from './types/Data/Interfaces'
+// ### Perks
+export * from './types/Data/Perks/Interfaces'
+// ### Summoner
+export * from './types/Data/Summoner/Interfaces'
 // ## EventData
 export * from './types/EventData'
 // ### ChampionSelect
-export * from './types/EventData/ChampionSelect/Interfaces'
-// ### Perks
-export * from './types/EventData/Perks/Interfaces'
+export * from './types/EventData/ChampSelect/Interfaces'
 // ## EventMetadata
 export * from './types/EventMetadata'
 export * from './types/EventMetadata/Interfaces'

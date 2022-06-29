@@ -8,6 +8,10 @@ const {
   pages,
   session,
   settings,
+  currentSummoner,
+  lolSummoner,
+  puuid,
+  summoners,
 } = LCUPaths
 
 /**
@@ -19,4 +23,8 @@ export const LCUURIs = {
   perksInventory: `/${lolPerks}/v1/${inventory}`,
   perksPages: `/${lolPerks}/v1/${pages}`,
   perksCurrentPage: `/${lolPerks}/v1/${currentPage}`,
+  summonerCurrentSummoner: `/${lolSummoner}/v1/${currentSummoner}`,
+  summonerSummonerByName: `/${lolSummoner}/v1/${summoners}`,
+  summonerSummonersByIds: `/${lolSummoner}/v2/${summoners}`,
+  summonerSummonerByPuuid: `${lolSummoner}/v2/${summoners}/${puuid}`,
 } as const

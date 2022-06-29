@@ -1,7 +1,7 @@
 import { EventType } from '.'
 import { LCUURIs } from '../../Constants/LCUURIs'
-import { ChampSelectSessionEventData } from '../EventData/ChampionSelect/Interfaces'
-import { PerksInventoryEventData, PerksPagesEventData } from '../EventData/Perks/Interfaces'
+import { ChampSelectSessionEventData } from '../EventData/ChampSelect/Interfaces'
+import { PerksInventory, PerksPage } from '../Data/Perks/Interfaces'
 
 export interface ChampSelectSessionEvent {
   data: ChampSelectSessionEventData
@@ -10,19 +10,19 @@ export interface ChampSelectSessionEvent {
 }
 
 export interface PerksInventoryEvent {
-  data: PerksInventoryEventData
+  data: PerksInventory
   eventType: EventType
   uri: typeof LCUURIs.perksInventory
 }
 
 export interface PerksPagesEvent {
-  data: PerksPagesEventData[]
+  data: PerksPage[]
   eventType: EventType
   uri: typeof LCUURIs.perksPages
 }
 
 export interface PerksCurrentPageEvent {
-  data: PerksPagesEventData
+  data: PerksPage
   eventType: EventType
   uri: typeof LCUURIs.perksCurrentPage
 }

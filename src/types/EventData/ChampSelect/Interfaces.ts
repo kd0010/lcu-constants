@@ -1,15 +1,11 @@
-import { ChampSelectActionTypes } from '../../../Constants/ChampSelectActionTypes'
 import { AssignedPosition, CellId, ChampSelectPhase, EntitledFeatureType, TeamKey, TradeState } from '..'
+import { ChampSelectAction, ChampSelectBanActionId, ChampSelectPickActionId, ChampSelectTenBansRevealActionId } from '.'
 
 /**
  * Champion select event.
  */
 export interface ChampSelectSessionEventData {
-  actions: (
-    | ChampSelectBanAction[]
-    | ChampSelectTenBansRevealAction[]
-    | ChampSelectPickAction[]
-  )
+  actions: ChampSelectAction[]
   allowBattleBoost: boolean
   allowDuplicatePicks: boolean
   allowLockedEvents: boolean
@@ -46,20 +42,12 @@ export interface ChampSelectSessionEventData {
 
 export interface ChampSelectPickAction {
   actorCellId: CellId
+  /**
+   * This `championdId` is actually the champion's key in `champion.json`.
+   */
   championId: number
   completed: boolean
-  id: (
-    | typeof ChampSelectActionTypes.BLUE_1_PICK
-    | typeof ChampSelectActionTypes.BLUE_2_PICK
-    | typeof ChampSelectActionTypes.BLUE_3_PICK
-    | typeof ChampSelectActionTypes.BLUE_4_PICK
-    | typeof ChampSelectActionTypes.BLUE_5_PICK
-    | typeof ChampSelectActionTypes.RED_1_PICK
-    | typeof ChampSelectActionTypes.RED_2_PICK
-    | typeof ChampSelectActionTypes.RED_3_PICK
-    | typeof ChampSelectActionTypes.RED_4_PICK
-    | typeof ChampSelectActionTypes.RED_5_PICK
-  )
+  id: ChampSelectPickActionId
   isAllyAction: boolean
   isInProgress: boolean
   /**
@@ -73,18 +61,7 @@ export interface ChampSelectBanAction {
   actorCellId: CellId
   championId: number
   completed: boolean
-  id: (
-    | typeof ChampSelectActionTypes.BLUE_FIRST_BAN
-    | typeof ChampSelectActionTypes.BLUE_SECOND_BAN
-    | typeof ChampSelectActionTypes.BLUE_THIRD_BAN
-    | typeof ChampSelectActionTypes.BLUE_FOURTH_BAN
-    | typeof ChampSelectActionTypes.BLUE_FIFTH_BAN
-    | typeof ChampSelectActionTypes.RED_FIFTH_BAN
-    | typeof ChampSelectActionTypes.RED_SECOND_BAN
-    | typeof ChampSelectActionTypes.RED_THIRD_BAN
-    | typeof ChampSelectActionTypes.RED_FOURTH_BAN
-    | typeof ChampSelectActionTypes.RED_FIFTH_BAN
-  )
+  id: ChampSelectBanActionId
   isAllyAction: boolean
   isInProgress: boolean
   type: 'ban'
@@ -94,7 +71,7 @@ export interface ChampSelectTenBansRevealAction {
   actorCellId: -1
   championId: 0
   completed: boolean
-  id: typeof ChampSelectActionTypes.TEN_BANS_REVEAL
+  id: ChampSelectTenBansRevealActionId
   isAllyAction: boolean
   isInProgress: boolean
   type: 'ten_bans_reveal'
