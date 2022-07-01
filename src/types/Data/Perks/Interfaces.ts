@@ -1,5 +1,3 @@
-import { RuneId, RuneTreeId } from 'lol-constants'
-
 export interface PerksPage {
   autoModifiedSelections: unknown[]
   current: boolean
@@ -14,9 +12,9 @@ export interface PerksPage {
   lastModified: number
   name: string
   order: number
-  primaryStyleId: RuneTreeId
-  selectedPerkIds: RuneId[]
-  subStyleId: RuneTreeId
+  primaryStyleId: number
+  selectedPerkIds: number[]
+  subStyleId: number
 }
 
 export interface PerksInventory {
