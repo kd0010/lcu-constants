@@ -1,6 +1,8 @@
 // # Constants
 export { ChampSelectActionIndices } from './Constants/ChampSelectActionIndices'
 export { ChampSelectActionTypes } from './Constants/ChampSelectActionTypes'
+export { DefaultRunePageIds } from './Constants/DefaultRunePageIds'
+export { DefaultRunePageNames } from './Constants/DefaultRunePageNames'
 export { LCUMessageIds } from './Constants/LCUMessageIds'
 export { LCUMessageTypes } from './Constants/LCUMessageTypes'
 export { LCUPaths } from './Constants/LCUPaths'
